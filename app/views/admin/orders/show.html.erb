@@ -1,2 +1,66 @@
-<h1>Admin::Orders#show</h1>
-<p>Find me in app/views/admin/orders/show.html.erb</p>
+<table class="table">
+  <tr>
+    <td>
+      <lable>購入者</lable>
+      <%= @order.customer.name %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <lable>注文日</lable>
+      <%= @order.created_at %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <lable>配送先</lable>
+      <%= @order.postal_code %>
+      <%= @order.addresses %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <lable>支払方法</lable>
+      <%= @order.payment_method %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <lable>注文ステータス</lable>
+      <%= form_with model: @order, url: admin_order_update_path, method: :patch do |f| %>
+
+        <%= f.submit '更新' %>
+      <% end %>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th><lable>商品名</lable></th>
+    <th><lable>単価（税込）</lable></th>
+    <th><lable>数量</lable></th>
+    <th><lable>小計</lable></th>
+    <th><lable>製作ステータス</lable></th>
+  </tr>
+  <% @orders.each do |o| %>
+    <tr>
+      <th><%= o.item.name %></th>
+    </tr>
+    <tr>
+      <th><%= o.item.price %></th>
+    </tr>
+    <tr>
+      <th><%= o.amount %></th>
+    </tr>
+    <tr>
+      <th>
+        <%= form_with model: o, url: admin_order_detail_update_path(o.id), method: :patch do |f| %>
+          <%=  %>
+          <%= f.submit '更新' %>
+        <% end %>
+      </th>
+    </tr>
+  <% end %>
+</table>
+

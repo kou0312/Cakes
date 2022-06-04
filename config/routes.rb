@@ -51,12 +51,12 @@ Rails.application.routes.draw do
     get "customers" => "customers#index"
     get "customers/:id" => "customers#show"
     get "customers:id/edit" => "customers#edit", as: :edit_customers
-    patch "customers/:id" => "customers#update"
+    patch "customers/:id" => "customers#update", as: :update_customer
     #Orders
-    get "orders/:id" => "orders#show"
-    patch "orders/:id" => "orders#update"
+    get "orders/:id" => "orders#show", as: :order
+    patch "orders/:id" => "orders#update", as: :order_update
     #Order_Details
-    patch "order_details/:id" => "order_details#update"
+    patch "order_details/:id" => "order_details#update", as: :order_detail_update
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
