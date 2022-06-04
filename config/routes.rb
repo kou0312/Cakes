@@ -1,3 +1,81 @@
 Rails.application.routes.draw do
+
+
+  namespace :public do
+    #Homes
+    get '/' => "homes#top"
+    get 'about' => "homes#about"
+    #Items
+    resources :items, only: [:index, :show]
+    #Registration
+    resources :registrations, only: [:new, :create]
+    #Sessions
+    resources :sessions, only: [:new, :create, :destroy]
+    #Customers
+    get "customers/home" => "customers#show"
+    get "customers/edit" => "customers#edit"
+    patch "customers" => "customers#update"
+    get "customers/confirmation" => "customers#confirmation"
+    patch "customers/confirmation" => "customers#withdraw"
+    #Cart_Items
+    get "cart_items" => "cart_items#index"
+    patch "cart_items/:id" => "cart_items#update"
+    delete "cart_items/:id/destroy" => "cart_items#destroy"
+    delete "cart_items/destroy_all" => "cart_items#destroy_all"
+    #Orders
+    get "orders" => "orders#index"
+    get "orders/:id" => "orders#show"
+    get "orders/new" => "orders#new"
+    get "orders/confimation" => "orders#confimation"
+    get "orders/thanks" => "orders#thanks"
+    post "orders/new" => "orders#create"
+    #Addresses
+    get "addresses" => "addresses#index"
+    get "addresses/:id:edit" => "addresses#edit"
+    post "addresses" => "addresses#create"
+    patch "addresses/:id" => "addresses#update"
+    delete "addresses/:id" => "addresses#dest"
+  end
+
+  namespace :admin do
+    #Homes
+    get "/" => "homes#top"
+    #Items
+    resources :items, only: [:index, :new, :create, :show, :edit, :update]
+    #Genres
+    get "genres" => "genres#index"
+    post "genres" => "genres#create"
+    get "genres/:id/edit" => "genres#edit", as: :edit
+    patch "genres/:id" => "genres#update", as: :update_genre
+    #Customers
+    get "customers" => "customers#index"
+    get "customers/:id" => "customers#show"
+    get "customers:id/edit" => "customers#edit", as: :edit_customers
+    patch "customers/:id" => "customers#update"
+    #Orders
+    get "orders/:id" => "orders#show"
+    patch "orders/:id" => "orders#update"
+    #Order_Details
+    patch "order_details/:id" => "order_details#update"
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+
+
+
+# 顧客用
+# URL /customers/sign_in ...
+devise_for :customers,skip: [:passwords], controllers: {
+  registrations: "public/registrations",
+  sessions: 'public/sessions'
+}
+
+# 管理者用
+# URL /admin/sign_in ...
+devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  sessions: "admin/sessions"
+}
+
+
+
 end

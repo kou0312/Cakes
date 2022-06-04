@@ -1,0 +1,26 @@
+
+<thead>
+  <tr>
+    <th></th>
+    <th>会員ID</th>
+    <th>氏名</th>
+    <th>メールアドレス</th>
+    <th>ステータス</th>
+    <th colspan="3"></th>
+  </tr>
+</thead>
+<tbody>
+  <% @customers.each do |cus| %>
+    <tr>
+      <th><%= cus.id %></th>
+      <th>
+        <%= link_to edit_customers_path(cus.id) do %>
+          <%= cus.name %>
+        <% end %>
+      </th>
+      <th><%= cus.email %></th>
+      <th><%= cus.is_active %></th>
+      <th colspan="3"></th>
+    </tr>
+  <% end %>
+</tbody>
