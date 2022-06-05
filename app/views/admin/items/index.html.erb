@@ -15,12 +15,12 @@
       <tr>
         <th><%= item.id %></th>
         <th>
-          <%= link_to admin_item_path(item.id) do %>
-            <%= item.name %>
-          <% end %>
+         <%= link_to admin_item_path(item.id) do %>
+           <%= item.name %>
+         <% end %>
         </th>
         <th><%= item.price %></th>
-        <th><%= item.genre.name %></th>
+         <th><%= item.genre.name %></th>
       </tr>
     <% end %>
   </tbody>

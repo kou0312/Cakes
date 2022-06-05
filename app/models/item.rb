@@ -4,4 +4,8 @@ class Item < ApplicationRecord
   belongs_to :genre
 
   has_many :cart_items
+
+  def get_image
+    image.variant(resize_to_limit: [100, 100]).processed
+  end
 end
