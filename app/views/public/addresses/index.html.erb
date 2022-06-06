@@ -1,6 +1,6 @@
 <h2>配送先登録/一覧</h2>
 <%= form_with model: @address, url: public_create_address_path, method: :post do |f| %>
-
+  <%= f.hidden_field :customer_id, :value => current_customer.id %>
   <div class="form-group">
     <lable>郵便番号(ハイフンなし)</lable>
     <%= f.text_field :postal_code %>
@@ -29,8 +29,8 @@
       <td><%= c.postal_code %></td>
       <td><%= c.address %></td>
       <td><%= c.name %></td>
-      <td><%= link_to "編集する", public_edit_address_path(c.id) %></td>
-      <td><%= link_to "削除する", public_destroy_address_path(c.id) %></td>
+      <%= link_to "編集する", public_edit_address_path(c.id) %>
+      <%= link_to "削除する", public_destroy_address_path(c.id) %>
     </tr>
   <% end %>
 </table>

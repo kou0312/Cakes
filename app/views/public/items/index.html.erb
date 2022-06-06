@@ -1,25 +1,15 @@
-<h2>商品一覧</h2>
-  <thead>
-    <tr>
-      <th></th>
-      <th>商品ID</th>
-      <th>商品名</th>
-      <th>税抜価格</th>
-      <th>ジャンル</th>
-      <th>ステータス</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
+<h2>商品一覧</h2><h4>全<%= @count %>件</h4>
+  <table>
     <% @items.each do |item| %>
       <tr>
-        <th><%= item.image %></th>
+
         <th>
-         <%= link_to admin_item_path(item.id) do %>
-           <%= item.name %>
-         <% end %>
+          <%= link_to public_item_path(item.id) do %>
+            <%= item.image %>
+          <% end %>
         </th>
+        <th><%= item.name %></th>
         <th><%= item.price %></th>
       </tr>
     <% end %>
-  </tbody>
+  </table>
