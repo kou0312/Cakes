@@ -31,10 +31,10 @@ Rails.application.routes.draw do
     post "orders/new" => "orders#create"
     #Addresses
     get "addresses" => "addresses#index"
-    get "addresses/:id:edit" => "addresses#edit"
-    post "addresses" => "addresses#create"
-    patch "addresses/:id" => "addresses#update"
-    delete "addresses/:id" => "addresses#dest"
+    get "addresses/:id:edit" => "addresses#edit", as: :edit_address
+    post "addresses" => "addresses#create", as: :create_address
+    patch "addresses/:id" => "addresses#update", as: :update_address
+    delete "addresses/:id" => "addresses#destroy", as: :destroy_address
   end
 
   namespace :admin do

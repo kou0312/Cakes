@@ -62,3 +62,7 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
 gem 'enum_help'
+
+group :development, :test do
+  gem 'pry-rails'
+end
