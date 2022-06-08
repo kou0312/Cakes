@@ -15,8 +15,8 @@ Rails.application.routes.draw do
     get "customers/home" => "customers#show"
     get "customers/edit" => "customers#edit"
     patch "customers" => "customers#update"
-    get "customers/confirmation" => "customers#confirmation"
-    patch "customers/confirmation" => "customers#withdraw"
+    get "customers/confimation" => "customers#confimation"
+    patch "customers/confimation" => "customers#withdraw", as: :withdraw_customer
     #Cart_Items
     get "cart_items" => "cart_items#index"
     patch "cart_items/:id" => "cart_items#update", as: :update_cart_item
