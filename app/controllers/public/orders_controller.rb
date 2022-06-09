@@ -1,6 +1,6 @@
 class Public::OrdersController < ApplicationController
   def new
-    
+    @customer = Customer.find_by(params[:email])
   end
 
   def confimation

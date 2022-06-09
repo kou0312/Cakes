@@ -1,12 +1,12 @@
 <%= form_with url: public_orders_confimation_path, method: :get do |f| %>
   <%= f.label :payment_method, "支払方法" %>
-  <%= f.select :payment_method, {'クレジットカード', '銀行振込'}, prompt: "クレジットカード" %>
+  <%= f.select :payment_method,Order.payment_methods.keys.to_a %>
 
   <%= f.label :address, "お届け先" %>
 
   <%= f.radio_button :address, 0 %>
   <%= f.label :address, "ご自身の住所" %>
-  <%= f.label :customer, Customer.find(params[:id]), :id, :view_postal_code_and_address_and_last_name_and_first_name %>
+  <%= @customer.postal_code %><%= @customer.address %><%= @customer.last_name %><%= @customer.first_name %>
 
   <%= f.radio_button :address, 1 %>
   <%= f.label :address, "登録済みの住所から選択" %>
