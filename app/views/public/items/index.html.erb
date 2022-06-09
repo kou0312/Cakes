@@ -5,11 +5,12 @@
 
         <th>
           <%= link_to public_item_path(item.id) do %>
-            <%= item.image %>
+            <%= image_tag item.image %>
           <% end %>
         </th>
         <th><%= item.name %></th>
-        <th><%= item.price %></th>
+        <th><%= item.price %>円</th>
+        <th colspan="3"></th>
       </tr>
     <% end %>
   </table>

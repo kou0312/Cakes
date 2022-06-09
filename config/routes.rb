@@ -25,11 +25,11 @@ Rails.application.routes.draw do
     post "cart_items" => "cart_items#create"
     #Orders
     get "orders" => "orders#index"
-    get "orders/:id" => "orders#show"
-    get "orders/new" => "orders#new"
+    get "orders/new" => "orders#new", as: :new_order
+    get "orders/:id" => "orders#show", as: :show_order
     get "orders/confimation" => "orders#confimation"
     get "orders/thanks" => "orders#thanks"
-    post "orders/new" => "orders#create"
+    post "orders/new" => "orders#create", as: :create_order
     #Addresses
     get "addresses" => "addresses#index"
     get "addresses/:id/edit" => "addresses#edit", as: :edit_address
@@ -51,7 +51,7 @@ Rails.application.routes.draw do
     #Customers
     get "customers" => "customers#index"
     get "customers/:id" => "customers#show"
-    get "customers:id/edit" => "customers#edit", as: :edit_customers
+    get "customers/:id/edit" => "customers#edit", as: :edit_customers
     patch "customers/:id" => "customers#update", as: :update_customer
     #Orders
     get "orders/:id" => "orders#show", as: :order

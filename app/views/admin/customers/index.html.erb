@@ -14,8 +14,9 @@
     <tr>
       <th><%= cus.id %></th>
       <th>
-        <%= link_to edit_customers_path(cus.id) do %>
-          <%= cus.name %>
+        <%= link_to admin_edit_customers_path(cus.id) do %>
+          <%= cus.last_name %>
+          <%= cus.first_name %>
         <% end %>
       </th>
       <th><%= cus.email %></th>

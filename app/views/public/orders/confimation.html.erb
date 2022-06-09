@@ -1,2 +1,20 @@
-<h1>Public::Orders#confimation</h1>
-<p>Find me in app/views/public/orders/confimation.html.erb</p>
+<%= form_with model: @order, url: public_create_order_path, method: :post do |f| %>
+  <%= f.label :postage, '800' %>円
+  <%= label
+  
+  <% subtotal = ((cart_item.item.price*cart_item.amount)*1.08).to_i %>
+  <% total += subtotal %>
+  <%= total_payment = (total + 800 ).to_i %>
+  <%= f.label :total_payment, 'total_payment' %>円
+  
+  <%= f.label :postal_code,
+  <%= f.label :address
+  <%= f.label :name
+  
+  <%= f.label :payment_method
+
+
+
+
+
+<% end %>

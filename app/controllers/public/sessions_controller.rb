@@ -35,4 +35,7 @@ class Public::SessionsController < Devise::SessionsController
   def after_sign_in_path_for(resource)
     public_items_path
   end
+  def after_sign_out_path_for(resource)
+    new_customer_session_path
+  end
 end
