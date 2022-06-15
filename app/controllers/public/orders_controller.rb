@@ -1,11 +1,15 @@
 class Public::OrdersController < ApplicationController
   def new
     @customer = Customer.find_by(params[:email])
+    @order = Order.new
   end
 
   def confimation
     @cart_items = current_customer.cart_items.all
     @order = Order.new
+
+
+
   end
 
   def thanks
@@ -14,7 +18,7 @@ class Public::OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.save
-    redirect_to public_orders_thanks_path
+    redirect_to public_orders_confimation_path
   end
 
   def index
@@ -24,8 +28,10 @@ class Public::OrdersController < ApplicationController
   def show
   end
 
+
+private
   def order_params
-    params.require(:order).permit(:name, :address, :customer_id, :payment_method,:postage, :postal_code, :total_payment)
+    params.permit(:name, :address, :address_option, :payment_method)
   end
 
 end

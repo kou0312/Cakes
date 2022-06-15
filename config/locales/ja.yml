@@ -1,0 +1,6 @@
+ja:
+  enums:
+    order:
+      payment_method:
+        cureka: 'クレジットカード'
+        ginkou: '銀行振込'

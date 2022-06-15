@@ -1,5 +1,5 @@
 <% total = 0 %>
-<%= form_with model: @order, url: public_create_order_path, method: :post do |f| %>
+
   <div>
     <table>
       <tr>
@@ -29,7 +29,7 @@
     <table>
       <tr>
         <td><p>送料</p></td>
-        <td><%= f.label :postage, '800' %></td>
+        <td><%= label :postage, '800' %></td>
       </tr>
       <tr>
         <td><p>商品合計</p></td>
@@ -38,7 +38,7 @@
       <tr>
         <td><p>請求額</p></td>
         <%  total_payment = (total + 800 ).to_i %>
-        <td><%= f.label :total_payment, total_payment %></td>
+        <td><%= label :total_payment, total_payment %></td>
       </tr>
     </table>
   </div>
@@ -46,21 +46,17 @@
   <table>
     <tr>
       <td><p>支払方法</p></td>
-      <td><%= f.label :payment_method, order.payment_method %></td>
+      <td><%= address_option %></td>
     </tr>
     <tr>
       <td><p>お届け先</p></td>
-      <td><%= f.label :address, order.address %></td>
+      <td><%= @order.postal_code %><%= @order.address %><%= @order.name %></td>
     </tr>
   </table>
-  <%= f.label :payment_method %>
-  <%= f.label :postal_code %>
-  <%= f.label :address, order.address %>
-  <%= f.label :name %>
 
-
-
-  <%= f.submit %>
-
-
+<%= form_with model: @order, url: public_create_order_path, method: :post do |f| %>
+  <%= f.hidden_field :payment_method %>
+  <%= f.hidden_field :postal_code %>
+  <%= f.hidden_field :address %>
+  <%= f.hidden_field :name %>
 <% end %>

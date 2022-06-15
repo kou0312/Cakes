@@ -65,6 +65,5 @@ gem 'image_processing', '~> 1.2'
 
 gem 'enum_help'
 
-group :development, :test do
-  gem 'pry-rails'
-end
+
+gem 'pry-rails'

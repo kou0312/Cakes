@@ -22,14 +22,14 @@ Rails.application.routes.draw do
     patch "cart_items/:id" => "cart_items#update", as: :update_cart_item
     delete "cart_items/:id/destroy" => "cart_items#destroy", as: :destroy_cart_item
     delete "cart_items/destroy_all" => "cart_items#destroy_all", as: :destroy_all_cart_item
-    post "cart_items" => "cart_items#create"
+    post "cart_items" => "cart_items#create", as: :create_cart_item
     #Orders
     get "orders" => "orders#index"
     get "orders/new" => "orders#new", as: :new_order
-    get "orders/confimation" => "orders#confimation"
-    get "orders/:id" => "orders#show", as: :show_order
-    get "orders/thanks" => "orders#thanks"
     post "orders/new" => "orders#create", as: :create_order
+    get "orders/confimation" => "orders#confimation"
+    get "orders/thanks" => "orders#thanks"
+    get "orders/:id" => "orders#show", as: :show_order
     #Addresses
     get "addresses" => "addresses#index"
     get "addresses/:id/edit" => "addresses#edit", as: :edit_address
