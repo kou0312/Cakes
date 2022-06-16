@@ -25,8 +25,8 @@ Rails.application.routes.draw do
     post "cart_items" => "cart_items#create", as: :create_cart_item
     #Orders
     get "orders" => "orders#index"
-    get "orders/new" => "orders#new", as: :new_order
-    post "orders/new" => "orders#create", as: :create_order
+    get "orders/new" => "orders#new"
+    post "orders/new" => "orders#create"
     get "orders/confimation" => "orders#confimation"
     get "orders/thanks" => "orders#thanks"
     get "orders/:id" => "orders#show", as: :show_order
