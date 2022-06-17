@@ -46,17 +46,20 @@
   <table>
     <tr>
       <td><p>支払方法</p></td>
-      <td><%= @orders.address_option %></td>
+      <td><%= @pay %></td>
     </tr>
     <tr>
       <td><p>お届け先</p></td>
-      <td><%= @order.postal_code %><%= @order.address %><%= @order.name %></td>
+      <td><%= @pos %><%= @ress %><%= @na %></td>
     </tr>
   </table>
 
-<%= form_with model: @order, url: public_create_order_path, method: :post do |f| %>
+<%= form_with model: @order, url: public_orders_new_path, method: :post do |f| %>
   <%= f.hidden_field :payment_method %>
+  <%= f.hidden_field :postage %>
   <%= f.hidden_field :postal_code %>
-  <%= f.hidden_field :address %>
+  <%= f.hidden_field :order_address %>
   <%= f.hidden_field :name %>
+  <%= f.hidden_field :total_payment %>
+  <%= f.submit "注文を確定する" %>
 <% end %>

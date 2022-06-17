@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     get "orders" => "orders#index"
     get "orders/new" => "orders#new"
     post "orders/new" => "orders#create"
-    get "orders/confimation" => "orders#confimation"
+    post "orders/confimation" => "orders#confimation"
     get "orders/thanks" => "orders#thanks"
     get "orders/:id" => "orders#show", as: :show_order
     #Addresses

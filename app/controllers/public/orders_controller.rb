@@ -1,26 +1,25 @@
 class Public::OrdersController < ApplicationController
   def new
+    @order = Order.new
     @cart_items = current_customer.cart_items.all
     @customer = Customer.find_by(params[:email])
-    @order = Order.new
 
   end
 
   def create
     @order = Order.new(order_params)
-    binding.pry
-    @order.save
-
+    @order.save!
+    @order.valid?
+    @order.errors
     redirect_to public_orders_confimation_path
   end
 
   def confimation
-
-    @order = Order.find_by(params[:address_option])
+    binding.pry
     @cart_items = current_customer.cart_items.all
-    @order.payment_method = params[:order][:payment_method]
+    @pay = params[:order][:payment_method]
 
-
+    @order = Order.new
   end
 
   def thanks

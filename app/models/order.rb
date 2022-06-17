@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
-  belongs_to :customer
-  belongs_to :address
+  belongs_to :customer,optional: true
+  belongs_to :address,optional: true
   has_many :order_details, dependent: :destroy
 
 
