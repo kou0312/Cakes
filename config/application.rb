@@ -10,9 +10,8 @@ module Cakes
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
-    config.time_zone = 'Tokyo'
     config.i18n.default_locale = :ja
-    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
+    config.i18n.load_path += Dir[Rails.root.join('config/locales/*.yml').to_s]
 
     # Configuration for the application, engines, and railties goes here.
     #
