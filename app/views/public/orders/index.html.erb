@@ -1,4 +1,10 @@
-<% @order.each do %>
- <%= %>
- <%= 
+<% @order.each do |o| %>
+<tr>
+ <td><%= o.created_at.strftime('%Y/%m/%d') %></td>
+ <td>〒<%= o.postal_code %><br><%= o.order_address %><br><%= o.name %></td>
+ <td></td>
+</tr>
+  
+  
+ 
 <% end %>
