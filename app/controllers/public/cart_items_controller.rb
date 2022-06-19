@@ -21,7 +21,7 @@ class Public::CartItemsController < ApplicationController
 
   def update
     @cart_item = CartItem.find(params[:id])
-    @cart_item.update(cart_item_params)
+    @cart_item.update(up_params)
     redirect_to public_cart_items_path
   end
 
@@ -39,8 +39,12 @@ class Public::CartItemsController < ApplicationController
   end
 
   private
+    def up_params
+      params.permit(:amount)
+    end
+
     def cart_item_params
-        params.require(:cart_item).permit(:item_id, :price, :amount)
+      params.require(:cart_item).permit(:item_id, :price, :amount)
     end
 
 

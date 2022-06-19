@@ -43,9 +43,3 @@
 <%= link_to '買い物を続ける', public_items_path, :class=> 'btn' %>
 <br>
 <%= link_to '注文する', public_orders_new_path, :class=> 'btn' %>
-<%= form_with model: @order_cart, url: public_orders_new_path, method: :post do |f| %>
-  <%= f.hidden_field :customer_id, :value => current_customer.id %>
-  <%= f.hidden_field :, :value => @pay %>
-  
-  <%= f.submit "注文を確定する" %>
-<% end %>

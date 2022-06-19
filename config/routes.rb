@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     post "orders/confimation" => "orders#confimation"
     get "orders/thanks" => "orders#thanks"
     get "orders/:id" => "orders#show", as: :show_order
+    #Order_Cart
+    post "order/new" => "order_cart#create"
     #Addresses
     get "addresses" => "addresses#index"
     get "addresses/:id/edit" => "addresses#edit", as: :edit_address
