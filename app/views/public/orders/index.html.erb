@@ -2,9 +2,15 @@
 <tr>
  <td><%= o.created_at.strftime('%Y/%m/%d') %></td>
  <td>〒<%= o.postal_code %><br><%= o.order_address %><br><%= o.name %></td>
- <td></td>
+ <td>
+  <% OrderCart.find(o).each do |order| %>
+    <%= order.item.name %><br>
+  <% end %>
+ </td>
+ <td><%= o.total_payment %></td>
+ <td><%= link_to '表示する', public_show_order_path(o), :class=> 'btn' %></td>
 </tr>
-  
-  
- 
+
+
+
 <% end %>
