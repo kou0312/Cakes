@@ -1,16 +1,16 @@
-<h2>商品一覧</h2><h4>全<%= @count %>件</h4>
-  <table>
+<div class="hhh">
+  <h2>商品一覧</h2><h4>(全<%= @count %>件)</h4>
+</div>
+  <div class="list-wrap">
     <% @items.each do |item| %>
-      <tr>
-
-        <th>
-          <%= link_to public_item_path(item.id) do %>
-            <%= image_tag item.image %>
-          <% end %>
-        </th>
-        <th><%= item.name %></th>
-        <th><%= item.price %>円</th>
-        <th colspan="3"></th>
-      </tr>
+      <div class="list-box">
+        <%= link_to public_item_path(item.id) do %>
+          <%= image_tag item.image %>
+        <% end %>
+        <div class="list-comment">
+          <span class="list-body"><%= item.name %></span>
+          <span class="list-title"><%= item.price %>円</span>
+        </div>
+      </div>
     <% end %>
-  </table>
+  </div>

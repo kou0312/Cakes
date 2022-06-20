@@ -1,5 +1,5 @@
 <thead>
-  <h5>
+  <h5 class="top-head">
     ようこそ、ながのCAKEへ！<br>
     このサイトは、ケーキ販売のECサイトとなります。<br>
     会員でない方も商品の閲覧はできますが、<br>
@@ -7,13 +7,17 @@
   </h5>
 </thead>
 <tbody>
+<div class="top-body">
   <h2>新着商品</h2>
+  <div class="item-table">
   <% @items.each do |item| %>
-    <tr>
-      <th><%= image_tag item.get_image, size:"100x100" %></th>
-      <th><%= item.name %></th>
-      <th><%= item.price %></th>
-    </tr>
+    <table>
+      <tr><td class="tddd"><%= image_tag item.get_image, size:"100x100" %></td></tr>
+      <tr><td class="tdd"><%= item.name %></td></tr>
+      <tr><td class="tdd">¥<%= item.price %></td></tr>
+    </table>
   <% end %>
+  </div>
   <%= link_to "全ての商品を見る >", public_items_path %>
+</div>
 </tbody>

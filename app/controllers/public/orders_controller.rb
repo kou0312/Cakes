@@ -56,8 +56,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find([:id])
-    @oror = OrderCart.find_by([:order_id])
+    @order = Order.find(params[:id])
+    @oror = @order.order_carts.all
   end
 
 

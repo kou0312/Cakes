@@ -5,11 +5,11 @@ class Public::CustomersController < ApplicationController
   end
 
   def edit
-    @customer = Customer.find_by(customer_params)
+    @customer = current_customer
   end
 
   def update
-    @customer = Customer.find_by(params[:id])
+    @customer = current_customer
     @customer.update(customer_update_params)
     redirect_to public_customers_home_path
   end
@@ -19,10 +19,10 @@ class Public::CustomersController < ApplicationController
   end
 
   def withdraw
-    @customer = Customer.find_by(params[:email])
+    @customer = current_customer
     @customer.update(is_active: true)
     reset_session
-    redirect_to public_path
+    redirect_to root_path
   end
 
   private

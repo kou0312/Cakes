@@ -1,10 +1,23 @@
-<%= image_tag @item.image %>
-<%= @item.name %>
-<%= @item.introduction %>
-<%= @item.price %>
-<%= form_with(model: @cart_item,url: public_create_cart_item_path, method: :post)do |f| %>
-  <%= f.label :amount, "個数選択" %>
-    <%= f.select :amount, [1,2,3,4,5,6,7,8,9,10] %>
-  <%= f.hidden_field :item_id, :value => @item.id %>
-  <%= f.submit "カートに入れる" %>
-<% end %>
+
+<div class="shows">
+  <div class="show-im">
+    <%= image_tag @item.image %>
+  </div>
+  <div class="show-i">
+    <div class="show-ia">
+      <h3><%= @item.name %></h3>
+      <p><%= @item.introduction %></p>
+      <p>￥<%= @item.price %>(税込)</p>
+    </div>
+    <div class="show-ib">
+      <%= form_with(model: @cart_item,url: public_create_cart_item_path, method: :post)do |f| %>
+        <%= f.select :amount, [1,2,3,4,5,6,7,8,9,10], { include_blank: '個数選択'} %>
+        <%= f.hidden_field :item_id, :value => @item.id %>
+        <%= f.submit "カートに入れる" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-
-
+  root to: 'public/homes#top'
   namespace :public do
     #Homes
-    get '/' => "homes#top"
+
     get 'about' => "homes#about"
     #Items
     resources :items, only: [:index, :show]
@@ -62,7 +61,6 @@ Rails.application.routes.draw do
     patch "order_details/:id" => "order_details#update", as: :order_detail_update
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
 
 
 

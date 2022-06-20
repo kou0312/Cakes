@@ -42,4 +42,6 @@
 <br>
 <%= link_to '買い物を続ける', public_items_path, :class=> 'btn' %>
 <br>
-<%= link_to '注文する', public_orders_new_path, :class=> 'btn' %>
+<% if current_customer.cart_items.all.present? %>
+  <%= link_to '注文する', public_orders_new_path, :class=> 'btn' %>
+<% end %>

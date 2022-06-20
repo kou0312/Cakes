@@ -1,31 +1,36 @@
-<h2>ログイン</h2>
+<div class="mi">
+  <h2>ログイン</h2>
 
-<h3>会員の方はこちらからログイン</h3>
+  <h3>会員の方はこちらからログイン</h3>
+</div>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+    <div class="n">
+      <div class="n-a">
+        <%= f.label :メールアドレス %>
+      </div>
+      <div class="n-a">
+        <%= f.label :パスワード %>
+      </div>
     </div>
-  <% end %>
+    <div>
+      <div class="n-a">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+      <div class="n-a">
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  </div>
+
+  <div class="actions-a">
+    <%= f.submit "ログイン" %>
   </div>
 <% end %>
+<div class="mi">
+  <h3>会員登録がお済みでない方</h3>
+        <%= link_to "こちら", new_customer_registration_path %>
+        <em>から新規登録を行なってください。</em>
+</div>
 
-<h3>会員登録がお済みでない方</h3>
-<%= link_to "こちら", new_customer_registration_path %>
-<em>から新規登録を行なってください。</em>
-
-<%= render "public/shared/links" %>

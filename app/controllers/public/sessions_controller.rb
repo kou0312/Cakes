@@ -27,15 +27,16 @@ class Public::SessionsController < Devise::SessionsController
   # end
   def reject_inactive_user
     @customer = Customer.find_by(email: params[:customer][:email])
-    return if !@customer
-    if @customer.valid_password?(params[:customer][:password]) && !@customer.is_active
-       redirect_to new_customer_session_path
+    if @customer
+      if @customer.valid_password?(params[:customer][:password]) && (@customer.is_active == true)
+         redirect_to new_customer_session_path
+      end
     end
   end
   def after_sign_in_path_for(resource)
     public_items_path
   end
   def after_sign_out_path_for(resource)
-    new_customer_session_path
+    root_path
   end
 end

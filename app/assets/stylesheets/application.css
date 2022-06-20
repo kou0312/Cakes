@@ -13,3 +13,156 @@
  *= require_tree .
  *= require_self
  */
+
+ .boxer {
+   display: flex;
+   border-bottom: solid 0.7px #000000;
+
+ }
+
+ .fot {
+     height: 40px;
+     margin-bottom: 0px;
+     margin-top: 10px;
+     border-top: 1px solid #333333;
+ }
+
+ .h {
+     width: 150px;
+     height: 30px;
+     padding: 5px;
+     margin-bottom: 10px;
+     margin-top: 0px;
+     border: 1px solid #333333;
+
+ }
+
+.lis {
+  list-style:  none;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #333333;
+  margin-right: 5px;
+}
+
+.tddd {
+  width: 200px;
+  height: 105px;
+}
+
+.tdd {
+  width: 200px;
+  height: 26px;
+}
+
+.bo {
+  margin: 0 0 0 auto;
+  height: 100%;
+  width: 100%;
+}
+
+.sss {
+  margin-left: 60%;
+}
+
+.top-head {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.item-table {
+  display: flex;
+}
+
+.top-body {
+  margin-left: 20%;
+}
+
+
+main {
+  width: 880px;
+  margin: 0 auto;
+}
+
+.list-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 20%;
+}
+
+.list-box {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+}
+
+.list-comment {
+  width: 200px;
+}
+
+.hhh {
+  display: flex;
+  margin-left: 20%;
+
+}
+
+.shows {
+  display: flex;
+  margin-left: 20%;
+  margin-top: 10px;
+}
+
+.show-im {
+  margin-right: 7%;
+}
+
+.about-a {
+    text-align: center;
+    width: 100%;
+    height: 55px;
+}
+
+.about-b {
+  text-align: center;
+  width: 100%;
+
+}
+
+.field {
+  display: flex;
+}
+
+.n-a {
+  margin-left: 20px;
+  width: 250px;
+  height: 25px;
+  margin-bottom: 7px;
+}
+
+.n-b {
+  margin-left: 20px;
+  width: 250px;
+  height: 25px;
+  margin-bottom: 7px;
+}
+
+.nn {
+  display: flex;
+}
+
+.actions {
+  margin-left: 300px;
+}
+
+.actions-a {
+  margin-left: 50%;
+}
+
+.n {
+  margin-left: 30%;
+}
+
+.mi {
+  margin-left: 30%;
+}

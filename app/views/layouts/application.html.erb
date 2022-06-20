@@ -11,56 +11,102 @@
   </head>
 
   <body>
-
-    <header>
+    <div class="boxer">
+      <div>
+  　　<h3 class="h">LOGO</h3>
+　　　</div>
       <% if customer_signed_in? %>
-        <li>
-          <%= link_to "マイページ", public_customers_home_path %>
-        </li>
-        <li>
-          <%= link_to "商品一覧", public_path %>
-        </li>
-        <li>
-          <%= link_to "カート", public_cart_items_path %>
-        </li>
-        <li>
-          <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-        </li>
+      <div class="bo">
+      <table class="sss">
+        <tr>
+          <td>
+            <li class="lis">
+              <%= link_to "マイページ", public_customers_home_path %>
+            </li>
+          </td>
+          <td>
+            <li class="lis">
+              <%= link_to "商品一覧", public_items_path %>
+            </li>
+          </td>
+          <td>
+            <li class="lis">
+              <%= link_to "カート", public_cart_items_path %>
+            </li>
+          </td>
+          <td>
+            <li class="lis">
+              <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+            </li>
+          </td>
+        </tr>
+      </table>
+      </div>
       <% elsif admin_signed_in? %>
-        <li>
-          <%= link_to "商品一覧", admin_items_path %>
-        </li>
-         <li>
-          <%= link_to "会員一覧", admin_customers_path %>
-        </li>
-         <li>
-          <%= link_to "注文履歴一覧", admin_path %>
-        </li>
-         <li>
-          <%= link_to "ジャンル一覧", admin_genres_path %>
-        </li>
-        <li>
-          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-        </li>
-
+      <div class="bo">
+      <table class="sss">
+        <tr>
+          <td>
+            <li class="lis">
+              <%= link_to "商品一覧", admin_items_path %>
+            </li>
+          </td>
+          <td>
+            <li class="lis">
+              <%= link_to "会員一覧", admin_customers_path %>
+            </li>
+          </td>
+          <td>
+            <li class="lis">
+              <%= link_to "注文履歴一覧", admin_path %>
+            </li>
+          </td>
+          <td>
+            <li class="lis">
+              <%= link_to "ジャンル一覧", admin_genres_path %>
+            </li>
+          </td>
+          <td>
+            <li class="lis">
+              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+            </li>
+          </td>
+        </tr>
+      </table>
+      </div>
       <% else %>
-      　<li>
-          <%= link_to "About", public_about_path %>
-        </li>
-         <li>
-          <%= link_to "商品一覧", public_items_path %>
-        </li>
-        <li>
-          <%= link_to "新規登録", new_customer_registration_path %>
-        </li>
-        <li>
-          <%= link_to "ログイン", new_customer_session_path %>
-        </li>
+      <div class="bo">
+      <table class="sss">
+        <tr>
+          <td>
+            <li class="lis">
+              <%= link_to "About", public_about_path %>
+            </li>
+          </td>
+          <td>
+            <li class="lis">
+              <%= link_to "商品一覧", public_items_path %>
+            </li>
+          </td>
+          <td>
+            <li class="lis">
+              <%= link_to "新規登録", new_customer_registration_path %>
+            </li>
+          </td>
+          <td>
+            <li class="lis">
+              <%= link_to "ログイン", new_customer_session_path %>
+            </li>
+          </td>
+        </tr>
+      </table>
+      </div>
       <% end %>
-
-    </header>
-
+    </div>
     <%= yield %>
   </body>
+  <footer class="fot">
+    
+  </footer>
 </html>
 
