@@ -166,3 +166,92 @@ main {
 .mi {
   margin-left: 30%;
 }
+
+.kara {
+  margin-left: 25%
+}
+
+.item-a {
+  width: 30%;
+  height: 8%;
+  border: 2px solid #333333;
+}
+
+.item-b {
+  width: 15%;
+  height: 8%;
+  border: 2px solid #333333;
+}
+
+.item-c {
+  margin-left: 20%;
+}
+
+.item-bb {
+  width: 100px;
+  height: 25px;
+  border: 2px solid #333333;
+}
+
+
+.nnnn {
+  display: flex;
+  margin-left: 15%;
+}
+
+.item-n {
+  height: 8%;
+  border: 2px solid #333333;
+}
+
+.item-na {
+  height: 8%;
+  border: 2px solid #333333;
+}
+
+.nna {
+  display: flex;
+  margin-left: 15%;
+  width: 100%;
+}
+
+.nna-a {
+  width: 30%;
+}
+
+.my {
+  width: 200px;
+  border: 2px solid #333333;
+}
+
+.my-a {
+  width: 300px;
+  border: 2px solid #333333;
+}
+
+.mymy {
+  margin-left: 15%;
+
+}
+
+.sp {
+  margin-right: 10px;
+}
+
+.tyu {
+  margin-left: 10px;
+}
+
+.tyu-a {
+  border: 2px solid #333333;
+}
+
+.tyo {
+  margin-left: 10px;
+}
+
+.nnnnn {
+  margin-left: 15%;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}

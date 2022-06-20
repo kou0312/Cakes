@@ -19,18 +19,20 @@
 <% end %>
 <table>
   <tr>
-    <td><lable>郵便番号</lable></td>
-    <td><lable>住所</lable></td>
-    <td><lable>宛名</lable></td>
-    <td><lable></lable></td>
+    <td class="item-b"><lable>郵便番号</lable></td>
+    <td class="item-a"><lable>住所</lable></td>
+    <td class="item-b"><lable>宛名</lable></td>
+    <td class="item-a"><lable></lable></td>
   </tr>
   <% @addresses.each do |c| %>
     <tr>
-      <td><%= c.postal_code %></td>
-      <td><%= c.address %></td>
-      <td><%= c.name %></td>
-      <%= link_to "編集する", public_edit_address_path(c.id) %>
-      <%= link_to "削除する", public_destroy_address_path(c.id) %>
+      <td class="item-b"><%= c.postal_code %></td>
+      <td class="item-a"><%= c.address %></td>
+      <td class="item-b"><%= c.name %></td>
+      <td class="item-a">
+        <%= link_to "編集する", public_edit_address_path(c.id) %>
+        <%= link_to "削除する", public_destroy_address_path(c.id) %>
+      </td>
     </tr>
   <% end %>
 </table>

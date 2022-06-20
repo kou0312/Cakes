@@ -1,67 +1,79 @@
 <% total = 0 %>
 
-  <div>
-    <table>
-      <tr>
-        <td></td>
-        <td><p>商品名</p></td>
-        <td><p>単価(税込)</p></td>
-        <td><p>数量</p></td>
-        <td><p>小計</p></td>
-        <td colspan="3"></td>
-      </tr>
-      <% @cart_items.each do |cart_item| %>
+  <div class="nna">
+    <div class="nna-a">
+      <table>
         <tr>
           <td></td>
-          <td>
-            <%= image_tag cart_item.item.image, size: "60x50",fallback: "no_image.jpg" %>
-            <%= cart_item.item.name %>
-          </td>
-          <td><%= (cart_item.item.price*1.08).to_i %>円</td>
-          <td><%= cart_item.amount %></td>
-          <td><% subtotal = ((cart_item.item.price*cart_item.amount)*1.08).to_i %>
-              <%= subtotal %>円</td>
-          <td colspan="3"></td>
-          <% total += subtotal %>
+          <td class="item-na"><p>商品名</p></td>
+          <td class="item-n"><p>単価(税込)</p></td>
+          <td class="item-n"><p>数量</p></td>
+          <td class="item-n"><p>小計</p></td>
+          <td></td>
         </tr>
-      <% end %>
-    </table>
-    <table>
-      <tr>
-        <td><p>送料</p></td>
-        <td><%= label :postage, '800' %></td>
-      </tr>
-      <tr>
-        <td><p>商品合計</p></td>
-        <td><%= total %></td>
-      </tr>
-      <tr>
-        <td><p>請求額</p></td>
-        <%  total_payment = (total + 800 ).to_i %>
-        <td><%= label :total_payment, total_payment %></td>
-      </tr>
-    </table>
+        <% @cart_items.each do |cart_item| %>
+          <tr>
+            <td></td>
+            <td class="item-na">
+              <%= image_tag cart_item.item.image, size: "60x50",fallback: "no_image.jpg" %>
+              <%= cart_item.item.name %>
+            </td>
+            <td class="item-n"><%= (cart_item.item.price*1.08).to_i %>円</td>
+            <td class="item-n"><%= cart_item.amount %></td>
+            <td class="item-n"><% subtotal = ((cart_item.item.price*cart_item.amount)*1.08).to_i %>
+                <%= subtotal %>円</td>
+            <td></td>
+            <% total += subtotal %>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="nna-a">
+      <table>
+        <tr>
+          <td class="item-bb"><p>送料</p></td>
+          <td class="item-bb"><%= label :postage, '800' %></td>
+        </tr>
+        <tr>
+          <td class="item-bb"><p>商品合計</p></td>
+          <td class="item-bb"><%= total %></td>
+        </tr>
+        <tr>
+          <td class="item-bb"><p>請求額</p></td>
+          <%  total_payment = (total + 800 ).to_i %>
+          <td class="item-bb"><%= label :total_payment, total_payment %></td>
+        </tr>
+      </table>
+    </div>
   </div>
-
+<div class="nnnn">
   <table>
     <tr>
       <td><p>支払方法</p></td>
-      <td><%= @pay %></td>
+      <td>
+        <% if @pay == "credit_card" %>
+          <p>クレジットカード</p>
+        <% else @pay == "transfer" %>
+          <p>銀行振込</p>
+        <% end %>
+      </td>
     </tr>
     <tr>
       <td><p>お届け先</p></td>
       <td>〒<%= @pos %> <%= @ress %><br><%= @na %></td>
     </tr>
   </table>
-
-<%= form_with model: @order, url: public_orders_new_path, method: :post do |f| %>
-  <%= f.hidden_field :customer_id, :value => current_customer.id %>
-  <%= f.hidden_field :payment_method, :value => @pay %>
-  <%= f.hidden_field :postage, :value => 800 %>
-  <%= f.hidden_field :postal_code, :value => @pos %>
-  <%= f.hidden_field :order_address, :value => @ress %>
-  <%= f.hidden_field :name, :value => @na %>
-  <%= f.hidden_field :total_payment, :value => total_payment %>
-  <%= f.hidden_field :address_option, :value => @op %>
-  <%= f.submit "注文を確定する" %>
-<% end %>
+</div>
+<div class="nnnn">
+  <%= form_with model: @order, url: public_orders_new_path, method: :post do |f| %>
+    <%= f.hidden_field :customer_id, :value => current_customer.id %>
+    <%= f.hidden_field :payment_method, :value => @pay %>
+    <%= f.hidden_field :postage, :value => 800 %>
+    <%= f.hidden_field :postal_code, :value => @pos %>
+    <%= f.hidden_field :order_address, :value => @ress %>
+    <%= f.hidden_field :name, :value => @na %>
+    <%= f.hidden_field :total_payment, :value => total_payment %>
+    <%= f.hidden_field :address_option, :value => @op %>
+    <%= f.submit "注文を確定する" %>
+  <% end %>
+</div>

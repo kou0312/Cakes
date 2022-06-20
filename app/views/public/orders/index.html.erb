@@ -1,28 +1,25 @@
-<table>
-  <tr>
-    <td>注文日</td>
-    <td>配送先</td>
-    <td>注文商品</td>
-    <td>支払金額</td>
-    <td>注文詳細</td>
-  </tr>
-</table>
-<% @order.each do |o| %>
-<table>
-  <tr>
-    <td><%= o.created_at.strftime('%Y/%m/%d') %></td>
-    <td>〒<%= o.postal_code %><br><%= o.order_address %><br><%= o.name %></td>
-    <td>
-     <% o.order_carts.all.each do |order| %>
-       <%= order.item.name %><br>
-     <% end %>
-    </td>
-    <td><%= o.total_payment %></td>
-    <td><%= link_to '表示する', public_show_order_path(o), :class=> 'btn' %></td>
-  </tr>
-</table>
+<div class="tyu">
+  <table>
+    <tr>
+      <td class="tyu-a">注文日</td>
+      <td class="tyu-a">配送先</td>
+      <td class="tyu-a">注文商品</td>
+      <td class="tyu-a">支払金額</td>
+      <td class="tyu-a">注文詳細</td>
+    </tr>
+    <% @order.each do |o| %>
+      <tr>
+        <td class="tyu-a"><%= o.created_at.strftime('%Y/%m/%d') %></td>
+        <td class="tyu-a">〒<%= o.postal_code %><br><%= o.order_address %><br><%= o.name %></td>
+        <td class="tyu-a">
+         <% o.order_carts.all.each do |order| %>
+           <%= order.item.name %><br>
+         <% end %>
+        </td>
+        <td class="tyu-a"><%= o.total_payment %>円</td>
+        <td class="tyu-a"><%= link_to '表示する', public_show_order_path(o), :class=> 'btn' %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
 
-
-
-
-<% end %>

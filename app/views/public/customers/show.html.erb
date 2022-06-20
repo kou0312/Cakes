@@ -1,39 +1,56 @@
-<h3>マイページ</h3>
-<div>
-  <h3>登録情報</h3>
-  <%= link_to "編集する", public_customers_edit_path %>
+<div class="nnnn">
+  <h3>マイページ</h3>
 </div>
-<table>
-  <tr>
-    <td>氏名</td>
-    <td><%= current_customer.last_name %><%= current_customer.first_name %></td>
-  </tr>
-  <tr>
-    <td>カナ</td>
-    <td><%= current_customer.last_name_kana %><%= current_customer.first_name_kana %></td>
-  </tr>
-  <tr>
-    <td>郵便番号</td>
-    <td><%= current_customer.postal_code %></td>
-  </tr>
-  <tr>
-    <td>住所</td>
-    <td><%= current_customer.address %></td>
-  </tr>
-  <tr>
-    <td>電話番号</td>
-    <td><%= current_customer.telephone_number %></td>
-  </tr>
-  <tr>
-    <td>メールアドレス</td>
-    <td><%= current_customer.email %></td>
-  </tr>
-</table>
-<div>
-  <h4>配送先</h4>
-  <%= link_to "一覧を見る", public_addresses_path %>
+
+<div class="nnnn">
+  <div class="sp">
+    <h3>登録情報</h3>
+  </div>
+  <div class="sp">
+    <%= link_to "編集する", public_customers_edit_path %>
+  </div>
 </div>
-<div>
-  <h4>注文履歴</h4>
-  <%= link_to "一覧を見る", public_orders_path %>
+<div class="mymy">
+  <table>
+    <tr>
+      <td class="my">氏名</td>
+      <td class="my-a"><%= current_customer.last_name %> <%= current_customer.first_name %></td>
+    </tr>
+    <tr>
+      <td class="my">カナ</td>
+      <td class="my-a"><%= current_customer.last_name_kana %> <%= current_customer.first_name_kana %></td>
+    </tr>
+    <tr>
+      <td class="my">郵便番号</td>
+      <td class="my-a"><%= current_customer.postal_code %></td>
+    </tr>
+    <tr>
+      <td class="my">住所</td>
+      <td class="my-a"><%= current_customer.address %></td>
+    </tr>
+    <tr>
+      <td class="my">電話番号</td>
+      <td class="my-a"><%= current_customer.telephone_number %></td>
+    </tr>
+    <tr>
+      <td class="my">メールアドレス</td>
+      <td class="my-a"><%= current_customer.email %></td>
+    </tr>
+  </table>
+</div>
+<div class="nnnn">
+  <div class="sp">
+    <h4>配送先</h4>
+  </div>
+  <div class="sp">
+    <%= link_to "一覧を見る", public_addresses_path %>
+  </div>
+</div>
+<div class="nnnn">
+  <div class="sp">
+    <h4>注文履歴</h4>
+  </div>
+  <div class="sp">
+    <%= link_to "一覧を見る", public_orders_path %>
+  </div>
 </div>
